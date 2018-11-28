@@ -1,0 +1,108 @@
+﻿@model IEnumerable<FSE_19_ADODotNet_2.Models.Customer>
+
+@{
+
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Index</h2>
+
+<p>
+
+    @Html.ActionLink("Create New", "Create")
+
+</p>
+
+@using (Html.BeginForm("Index", "Customer", FormMethod.Post))
+{
+     @Html.TextBox("searchdate")
+    <input type="submit" value="Search" />
+}
+
+<table class="table">
+
+    <tr>
+
+        <th>
+
+            @Html.DisplayNameFor(model => model.CustId)
+
+        </th>
+
+        <th>
+
+            @Html.DisplayNameFor(model => model.CustName)
+
+        </th>
+
+        <th>
+
+            @Html.DisplayNameFor(model => model.CustAddress)
+
+        </th>
+
+        <th>
+
+            @Html.DisplayNameFor(model => model.DOB)
+
+        </th>
+
+        <th>
+
+            @Html.DisplayNameFor(model => model.Salary)
+
+        </th>
+
+        <th></th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+
+            <td>
+
+                @Html.DisplayFor(modelItem => item.CustId)
+
+            </td>
+
+            <td>
+
+                @Html.DisplayFor(modelItem => item.CustName)
+
+            </td>
+
+            <td>
+
+                @Html.DisplayFor(modelItem => item.CustAddress)
+
+            </td>
+
+            <td>
+
+                @Html.DisplayFor(modelItem => item.DOB)
+
+            </td>
+
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Salary)
+
+            </td>
+
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.CustId }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.CustId })
+
+            </td>
+
+        </tr>
+
+    }
+
+</table>
